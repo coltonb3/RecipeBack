@@ -11,6 +11,12 @@ app.use("/", appRouter);
 
 
 
+
+//drop database comment
+// mongoose.connection.dropDatabase();
+
+//=================================================
+
 mongoose.connect('mongodb://localhost:27017/recipes')
 
 mongoose.connection.once('open', () => {
