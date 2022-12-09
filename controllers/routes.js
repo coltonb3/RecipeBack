@@ -10,7 +10,7 @@ const recipeSeed = require('../models/seed.js');
 //============================================
 //          SEED
 //============================================
-// //FIRST uncomment then comment out
+//FIRST uncomment then comment out
 // Recipe.create(recipeSeed, (err, data) => {
 //   if (err) console.log(err.message)
 //   console.log(`added provided recipe data`)
