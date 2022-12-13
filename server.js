@@ -45,7 +45,7 @@ app.listen(PORT, ()=>{
 	console.log('the creature is listening...');
 })
 
-mongoose.connect('mongodb+srv://chetv18:4wceCy8iFh77mlas@records.pojunds.mongodb.net/?retryWrites=true&w=majority', ()=>{
+mongoose.connect('mongodb+srv://chetv18:4wceCy8iFh77mlas@records.pojunds.mongodb.net/RecipeDB?retryWrites=true&w=majority', ()=>{
 	console.log('connected to mongo');
 })
 
