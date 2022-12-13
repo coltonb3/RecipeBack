@@ -20,6 +20,11 @@ app.use("/", appRouter);
 const userController = require('./controllers/users_controller.js');
 app.use(userController);
 
+let PORT = 3000;
+if(process.env.PORT){
+	PORT = process.env.PORT
+};
+
 
 // const corsOptions ={
 //     origin:'http://localhost:3000',
@@ -36,26 +41,15 @@ app.use(userController);
 //=================================================
 
 
-mongoose.connect(
-    'mongodb://localhost:27017/recipes',
-   
-    () => {
-      console.log('the connection with mongod is established at', 'mongodb://localhost:27017/recipes')
-    }
-  )
-  
-  db.on('error', (err) => console.log(err.message + ' is mongod not running?'))
-  db.on('disconnected', () => console.log('mongo disconnected'))
+app.listen(PORT, ()=>{
+	console.log('the creature is listening...');
+})
+
+mongoose.connect('mongodb+srv://chetv18:4wceCy8iFh77mlas@records.pojunds.mongodb.net/?retryWrites=true&w=majority', ()=>{
+	console.log('connected to mongo');
+})
 
 
-
-mongoose.connection.once('open', () => {
-    console.log('Connected to mongodb');
-});
-
-app.listen(3000, () => {
-    console.log();('listening....');
-});
 
 
 
