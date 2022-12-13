@@ -8,6 +8,6 @@ const recipeSchema = new mongoose.Schema({
     featured: Boolean
 });
 
-const Recipe = mongoose.model('recipe', recipeSchema);
+const Recipe = mongoose.model('Recipe', recipeSchema);
 
 module.exports = Recipe;
