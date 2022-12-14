@@ -1,14 +1,37 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 const cors = require('cors');
 const Recipes = require('./models/recipe.js');
-const appRouter = require("./controllers/routes.js");
+
 const app = express();
 
+
+const db = mongoose.connection
+
 app.use(express.json());
+// app.use(express.urlencoded({extended:true}));
+// app.use(methodOverride('_method'));
 app.use(cors());
+
+const appRouter = require("./controllers/routes.js");
 app.use("/", appRouter);
 
+const userController = require('./controllers/users_controller.js');
+app.use(userController);
+
+let PORT = 3000;
+if(process.env.PORT){
+	PORT = process.env.PORT
+};
+
+
+// const corsOptions ={
+//     origin:'http://localhost:3000',
+//     credentials:true,            //access-control-allow-credentials:true
+//     optionSuccessStatus:200
+// }
+// app.use(cors(corsOptions));
 
 
 
@@ -17,15 +40,16 @@ app.use("/", appRouter);
 
 //=================================================
 
-mongoose.connect('mongodb://localhost:27017/recipes')
 
-mongoose.connection.once('open', () => {
-    console.log('Connected to mongodb');
-});
+app.listen(PORT, ()=>{
+	console.log('the creature is listening...');
+})
 
-app.listen(3000, () => {
-    console.log();('listening....');
-});
+mongoose.connect('mongodb+srv://chetv18:4wceCy8iFh77mlas@records.pojunds.mongodb.net/RecipeDB?retryWrites=true&w=majority', ()=>{
+	console.log('connected to mongo');
+})
+
+
 
 
 

@@ -10,7 +10,7 @@ const recipeSeed = require('../models/seed.js');
 //============================================
 //          SEED
 //============================================
-// //FIRST uncomment then comment out
+//FIRST uncomment then comment out
 // Recipe.create(recipeSeed, (err, data) => {
 //   if (err) console.log(err.message)
 //   console.log(`added provided recipe data`)
@@ -32,6 +32,7 @@ router.get('/', (req, res)=>{
         res.json(foundRecipe);
     });
 });
+
 
 //create delete route
 router.delete('/:id', (req, res)=>{
