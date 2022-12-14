@@ -27,7 +27,7 @@ if(process.env.PORT){
 
 
 const corsOptions ={
-    origin:'http://localhost:3000',
+    origin:'https://git.heroku.com/serene-dawn-88718.git',
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
